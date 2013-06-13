@@ -13,11 +13,11 @@ video{
   margin-top: -4px;
   background: #333333 url(../img/video/control-bar.png) repeat-x 0 0;
   position: relative;
-  transition: top 0.5s ease;
   -webkit-transition: top 0.5s ease;
   -moz-transition: top 0.5s ease;
   -ms-transition: top 0.5s ease;
   -o-transition: top 0.5s ease;
+  transition: top 0.5s ease;
 }
 
 .control-bar:after{

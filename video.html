@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <link rel="stylesheet" href="css/font/ptsans.css"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/video.css"/>
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="js/lib/html5shiv-printshiv.js"></script>
+  <![endif]-->
+  <title>TZ Ya.Video</title>
+</head>
+<body>
+
+<div id="container">
+
+  <div class="video-one">
+
+    <video id="myVideo">
+      <source src="video/trailers/trailers.mp4" type="video/mp4">
+      <source src="video/trailers/trailers.webm" type="video/webm">
+      <source src="video/trailers/trailers.wmv">
+      Ваш браузер не поддерживает нативный просмотр видео, вы можете скачать файл <a href="video/trailers/trailers.mp4">trailers.mp4</a>
+    </video>
+    <nav class="control-bar">
+      <i id="play-pause">Play</i>
+      <i id="stop">Stop</i>
+      <div id="progress">
+        <div id="bar"></div>
+      </div>
+      <span id="time-now">00:00</span><span class="minus">&nbsp;-&nbsp;</span><span id="time-all">00:00</span>
+      <!--i id="volume-speaker"></i-->
+      <!--i id="volume-level"></i-->
+      <!--input id="volume-drag" type="range" min="0" max="1" step="0.1" value="0.3"/-->
+      <i id="full-screen"></i>
+    </nav>
+
+  </div>
+
+</div>
+
+<script type="text/javascript" src="js/video.js"></script>
+
+<script type="text/javascript">
+  videoPlayer("myVideo");
+</script>
+
+
+</body>
+</html>

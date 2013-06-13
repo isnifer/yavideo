@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="js/lib/html5shiv-printshiv.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script>
+  <title>Верстка</title>
+</head>
+<body>
+
+<div id="container">
+
+  <div class="first-text">
+    <header class="text-head">Тема: «Сюжетный анапест: основные моменты»</header>
+    <div class="column col-1">
+      <p>
+       Нельзя восстановить истинной хронологической последовательности событий, потому что мелькание мыслей параллельно. Структура аллитерирует мелодический реформаторский пафос, однако дальнейшее развитие приемов декодирования мы находим в работах академика В.Виноградова. Аллюзия наблюдаема. Аллитерация, как бы это ни казалось парадоксальным, параллельна. Мифопорождающее текстовое устройство прочно вызывает эпитет, причём сам Тредиаковский свои стихи мыслил как “стихотворное дополнение” к книге Тальмана.
+      </p>
+      <p>
+       Речевой акт традиционно осознаёт музыкальный дольник, но не рифмами. Различное расположение просветляет мелодический образ, таким образом постепенно смыкается с сюжетом. Силлабо-тоника, в первом приближении, просветляет мелодический ямб, таким образом в некоторых случаях образуются рефрены, кольцевые композиции, анафоры.
+      </p>
+    </div>
+    <div class="column col-2">
+      <p>
+        Представленный лексико-семантический анализ является психолингвистическим в своей основе, но мифопорождающее
+        текстовое устройство аллитерирует мифологический генезис свободного стиха, об этом свидетельствуют краткость и
+        завершенность формы, бессюжетность, своеобразие тематического развертывания.
+      </p>
+      <p>
+        Драма, по определению отражает брахикаталектический стих, хотя в существование или актуальность этого он не
+        верит, а моделирует собственную реальность. Лексика осознаёт литературный палимпсест, об этом свидетельствуют
+        краткость и завершенность формы, бессюжетность, своеобразие тематического развертывания.
+      </p>
+      <ul class="list">
+        <li class="list-item">Курит ли трупка мой</li>
+        <li class="list-item"><a href="#">из трупка тфой пихтишь</a></li>
+        <li class="list-item"><span class="pseudo">Или мой кафе пил</span></li>
+        <li class="list-item">тфой в щашешка сидишь</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="second-browsers">
+
+    <ul class="browser-list clf">
+      <li class="browser-item chrome">
+        <div class="logo chrome-img"></div>
+        <span>
+          <span class="green">Ch</span><span class="ch-red">ro</span><span class="yellow">me</span>
+        </span>
+      </li>
+      <li class="browser-item firefox">
+        <div class="logo firefox-img"></div>
+        <span class="orange">Firefox</span>
+      </li>
+      <li class="browser-item opera">
+        <div class="logo opera-img"></div>
+        <span class="op-red">Opera</span>
+      </li>
+      <li class="browser-item safari">
+        <div class="logo safari-img"></div>
+        <span class="grey">Safari</span>
+      </li>
+      <li class="browser-item ie last">
+        <div class="logo ie-img"></div>
+        <span class="blue">
+          <span>Internet Explorer</span>
+        </span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="third">
+
+    <div class="progress">
+      <div class="bar"></div>
+      <span class="percent"><span id="digit">0</span>%</span>
+    </div>
+
+  </div>
+
+</div>
+
+<img src="img/test.png" class="test" alt=""/>
+
+<script type="text/javascript">
+  $(window).load(function(){
+
+    var checkBrowser = function(){
+      $('.browser-item span').show();
+    };
+
+    if (!$('.test').width()){
+       $('.browser-item span').show();
+    }
+
+    var i = $('.logo').css('background-image');
+        i = i.substring(i.search('img'), i.indexOf('png'));
+        i = i + 'png';
+
+    $.ajax({
+      url: i,
+      error: function(){
+        checkBrowser();
+      }
+    });
+
+    // Progress Bar
+    for (var j=0; j<100; j++){
+
+    }
+
+    var progressBar = setInterval(function(){
+        var barWidth = ($('.bar').width() / $('.progress').width() * 100);
+            barWidth += 1;
+        var digit = Math.floor(barWidth);
+        $('.bar').css('width', barWidth + '%');
+        $('#digit').html(digit);
+        if (digit > 99){
+          clearInterval(progressBar);
+        }
+      }, 1000);
+
+  });
+</script>
+
+</body>
+</html>

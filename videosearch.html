@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="yaSearch">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/list.css"/>
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="js/lib/html5shiv-printshiv.js"></script>
+  <![endif]-->
+  <title>Поиск по видео</title>
+</head>
+<body>
+
+<div id="container" ng-controller="Video">
+
+  <header class="video-head">Поиск видео</header>
+
+  <form class="video-search" ng-submit="search(request)">
+    <input type="search" class="search" placeholder="Поиск..." name="request" ng-model="request" />
+  </form>
+
+  <div id="player">
+    <span class="choose">Введите поисковый запрос и выберите видео из списка</span>
+  </div>
+
+  <div class="results" ng-controller="nextPage">
+
+    <ul class="video-list" id="vlist">
+      <li class="video-item youtube" ng-repeat="youtube in youtube | startFrom:currentPage*pageSize| limitTo:pageSize">
+        <img src="" ng-click="insertYouTube(youtube.id.videoId)" ng-src="{{ youtube.snippet.thumbnails.medium.url }}" alt=""/>
+        <span class="video-info">{{youtube.snippet.title}}</span>
+      </li>
+      <li class="video-item vk" ng-repeat="video in vk | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <img src="" ng-src="{{video.image_medium}}" ng-click="insertVK(video.player)" alt=""/>
+        <span class="video-info">{{video.title}}</span>
+      </li>
+      <li class="video-item vimeo" ng-repeat="video in vimeo | startFrom:currentPage*pageSize | limitTo: pageSize">
+        <img src="" ng-click="insertVimeo(video.url)" ng-src="{{video.thumbnail}}" alt="{{video.url}}"/>
+        <span class="video-info">{{video.title}}</span>
+      </li>
+    </ul>
+
+    <div class="pagination">
+      <p>{{currentPage+1}} из {{numPages()}}</p>
+      <button class="prev" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">Назад</button>
+      <button class="next" ng-disabled="currentPage >= youtube.length / pageSize - 1" ng-click="currentPage = currentPage + 1">Вперед</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
+<script type="text/javascript" src="js/videoSearch.js"></script>
+
+</body>
+</html>

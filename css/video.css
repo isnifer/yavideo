@@ -1,0 +1,141 @@
+/* Only Controls' Styles */
+
+video{
+  cursor: pointer;
+}
+
+.control-bar{
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 28px;
+  margin-top: -4px;
+  background: #333333 url(../img/video/control-bar.png) repeat-x 0 0;
+  position: relative;
+  transition: top 0.5s ease;
+}
+
+.control-bar:after{
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.control-bar div, .control-bar span, .control-bar i{
+  display: inline-block;
+  float: left;
+}
+
+#play-pause{
+  position: relative;
+  top: 6px;
+  left: 10px;
+  width: 15px;
+  height: 17px;
+  border: 0;
+  background: url(../img/video/play.png) no-repeat 0 -17px;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+#progress{
+  position: relative;
+  top: 9px;
+  margin-left: 20px;
+  padding-left: 1px;
+  width: 70%;
+  height: 10px;
+  border-radius: 5px;
+  background: url(../img/video/time-bar.png) repeat-x 0 0;
+  cursor: pointer;
+}
+
+#bar{
+  position: relative;
+  width: 0;
+  height: 9px;
+  border-radius: 5px;
+  background: url(../img/video/loaded-bar.png) repeat-x 0 0;
+}
+
+#time-now, .minus, #time-all{
+  position: relative;
+  top: 8px;
+  color: #fff;
+  font: normal 12px "PT Sans";
+}
+
+#time-now{
+  margin-left: 12px;
+}
+
+#stop{
+  position: relative;
+  top: 6px;
+  left: 13px;
+  width: 15px;
+  height: 17px;
+  border: 0;
+  background: url(../img/video/play.png) no-repeat 0 -34px;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+#volume-speaker{
+  position: relative;
+  top: 6px;
+  margin-left: 12px;
+  width: 12px;
+  height: 18px;
+  background: url(../img/video/volume-speaker.png) no-repeat 0 0;
+  cursor: pointer;
+}
+
+#volume-level{
+  position: relative;
+  top: 10px;
+  margin-left: 3px;
+  width: 7px;
+  height: 10px;
+  background: url(../img/video/volume-meter.png) no-repeat 0 -11px;
+}
+
+#volume-drag{
+  -webkit-appearance: none;
+  float: left;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  margin-left: 10px;
+  width: 100px;
+  height: 8px;
+  border-radius: 4px;
+  background: url(../img/video/volume-bar.png) repeat-x 0 0;
+  border: 0;
+  outline: none;
+}
+
+#volume-drag::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  position: relative;
+  top: 0;
+  width: 17px;
+  height: 15px;
+  background: url(../img/video/volume-dragger.png) no-repeat 0 0;
+  cursor: pointer;
+}
+
+#full-screen{
+  position: relative;
+  top: 6px;
+  margin-left: 10px;
+  width: 15px;
+  height: 17px;
+  background: url(../img/video/full-screen.png) no-repeat 0 -17px;
+  cursor: pointer;
+}
+
+#full-screen:hover{
+  background-position: 0 0;
+}

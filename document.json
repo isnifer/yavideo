@@ -1,0 +1,69 @@
+{
+    "video": [
+        {
+            "type": "flash",
+            "img": "img/preview/1.jpg",
+            "name": "Slim - Девочка",
+            "src": "http://vk.com/video_ext.php?oid=-52076382&id=165430119&hash=f32da051480909af&autoplay=1"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/2.jpg",
+            "name": "Myway - Dance centre",
+            "src": "http://vk.com/video_ext.php?oid=66904554&id=163462121&hash=d54d771c0c81591c&autoplay=1?iphone"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/3.jpg",
+            "name": "Linkin Park - Castle of Glass",
+            "src": "http://www.youtube.com/embed/ScNNfyq3d_w?autoplay=1"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/4.jpg",
+            "name": "Linkin Park - Numb",
+            "src": "http://www.youtube.com/embed/kXYiU_JCYtU?autoplay=1"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/5.jpg",
+            "name": "Санкт-Петербург",
+            "src": "http://player.vimeo.com/video/46358463?autoplay=1"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/6.jpg",
+            "name": "Linkin Park - New Divide",
+            "src": "http://vk.com/video_ext.php?oid=142385829&id=164602717&hash=e7a5c134af871eec&autoplay=1?iphone"
+        },
+        {
+            "type": "flash",
+            "img": "img/preview/7.jpg",
+            "name": "Linkin Park - Not Alone",
+            "src": "http://player.vimeo.com/video/9564507?autoplay=1"
+        },
+        {
+            "type": "html5",
+            "img": "img/preview/8.jpg",
+            "name": "W3C player demonstration video",
+            "src": [
+                "video/trailers/trailers.webm",
+                "video/trailers/trailers.mp4",
+                "video/trailers/trailers.wmv",
+                "video/trailers/trailers.ogv"
+            ]
+        },
+        {
+            "type": "html9",
+            "img": "img/preview/9.jpg",
+            "name": "HTML5 Tutorial from Nettuts",
+            "src": [
+                "video/html5/html5.webm",
+                "video/html5/html5.mp4",
+                "video/html5/html5.wmv",
+                "video/html5/html5.ogv"
+            ]
+        }
+        
+    ]
+}

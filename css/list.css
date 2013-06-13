@@ -1,0 +1,131 @@
+@import "font/ptsans.css";
+
+html, body{
+  height: 100%;
+  background: url(../img/blur-bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+#container{
+  min-height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.7);
+}
+
+#container .video-head{
+  font: bold 1.5em "PT Sans";
+  color: #3B6B55;
+  margin: 0;
+  padding: 5px 10px; 
+}
+
+.video-search{
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+  position: relative;
+  top: 50px;
+}
+
+.video-search:after{
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.video-search .search{
+  display: block;
+  width: 280px;
+  padding: 5px 10px;
+  background: rgba(0,0,0,.3);
+  font: normal 14px "PT Sans";
+  color: #fff;
+  border: 2px solid #562221;
+  border-radius: 10px;
+  outline: none;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+
+/* Player Styles */
+#player{
+  width: 560px;
+  height: 315px;
+  float: left;
+  background: #000;
+  margin: 100px 50px 50px 10px;
+  color: #3B6B55;
+  font: normal 1em "PT Sans";
+  padding: 0;
+  overflow: hidden;
+}
+
+#player .choose{
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 315px;
+}
+
+#player:hover .control-bar{
+  top: -28px;
+}
+
+.results{
+  margin: 98px 6px 0;
+  padding: 0;
+  overflow: hidden;
+  width: 510px;
+}
+
+.video-list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  height: 324px;
+}
+
+.video-list .video-item{
+  width: 150px;
+  height: 100px;
+  margin: 2px 4px 6px;
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video-list .video-item img{
+  width: 150px;
+  height: 100px;
+  display: block;
+}
+
+.video-list .video-item .video-info{
+  display: block;
+  color: #fff;
+  background: rgba(0,0,0,.7);
+  width: 147px;
+  min-height: 47px;
+  overflow: hidden;
+  font: normal 11px "PT Sans";
+  text-align: left;
+  padding: 3px;
+  position: relative;
+  transition: top 0.3s ease;
+}
+
+#vlist .video-item:hover{
+  box-shadow: 0 0 2px 2px rgba(59,107,85,.5);
+}
+
+#vlist .video-item:hover .video-info{
+  top: -50px;
+}
+
+.pagination{
+  color: #fff;
+  font: normal 16px "PT Sans";
+}

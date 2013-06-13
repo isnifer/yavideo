@@ -27,16 +27,16 @@
   <div class="results" ng-controller="nextPage">
 
     <ul class="video-list" id="vlist">
-      <li class="video-item youtube" ng-repeat="youtube in youtube | startFrom:currentPage*pageSize| limitTo:pageSize">
-        <img src="" ng-click="insertYouTube(youtube.id.videoId)" ng-src="{{ youtube.snippet.thumbnails.medium.url }}" alt=""/>
+      <li class="video-item youtube" ng-click="insertYouTube(youtube.id.videoId)" ng-repeat="youtube in youtube | startFrom:currentPage*pageSize| limitTo:pageSize">
+        <img src="" ng-src="{{ youtube.snippet.thumbnails.medium.url }}" alt=""/>
         <span class="video-info">{{youtube.snippet.title}}</span>
       </li>
-      <li class="video-item vk" ng-repeat="video in vk | startFrom:currentPage*pageSize | limitTo:pageSize">
-        <img src="" ng-src="{{video.image_medium}}" ng-click="insertVK(video.player)" alt=""/>
+      <li class="video-item vk" ng-click="insertVK(video.player)" ng-repeat="video in vk | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <img src="" ng-src="{{video.image_medium}}" alt=""/>
         <span class="video-info">{{video.title}}</span>
       </li>
-      <li class="video-item vimeo" ng-repeat="video in vimeo | startFrom:currentPage*pageSize | limitTo: pageSize">
-        <img src="" ng-click="insertVimeo(video.url)" ng-src="{{video.thumbnail}}" alt="{{video.url}}"/>
+      <li class="video-item vimeo" ng-click="insertVimeo(video.url)" ng-repeat="video in vimeo | startFrom:currentPage*pageSize | limitTo: pageSize">
+        <img src=""  ng-src="{{video.thumbnail}}" alt="{{video.url}}"/>
         <span class="video-info">{{video.title}}</span>
       </li>
     </ul>

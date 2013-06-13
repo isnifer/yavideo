@@ -160,8 +160,9 @@ function videoPlayer(video){
 
   // Обработка клика по прогрессбару
   v.progrElem.addEventListener('click', function(e){
-    v.el.currentTime = (e.offsetX * Math.floor(v.el.duration)) / (v.progrElem.offsetWidth - 1);
-    v.barElem.style.width = e.offsetX + 'px';
+    var eventX = e.offsetX || e.layerX;  // Firefox fix
+    v.barElem.style.width = eventX + 'px';
+    v.el.currentTime = Math.floor((eventX * Math.floor(v.el.duration)) / (v.progrElem.offsetWidth - 1));
   }, false);
 
   // Стоп

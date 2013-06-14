@@ -5,14 +5,14 @@ video{
 }
 
 .control-bar{
+  position: relative;
   display: block;
   margin: 0;
+  margin-top: -4px;
   padding: 0;
   width: 600px;
   height: 28px;
-  margin-top: -4px;
   background: #333333 url(../img/video/control-bar.png) repeat-x 0 0;
-  position: relative;
   -webkit-transition: top 0.5s ease;
   -moz-transition: top 0.5s ease;
   -ms-transition: top 0.5s ease;
@@ -107,17 +107,17 @@ video{
 
 #volume-drag{
   -webkit-appearance: none;
-  float: left;
-  display: inline-block;
   position: relative;
   top: 10px;
+  display: inline-block;
+  float: left;
   margin-left: 10px;
   width: 100px;
   height: 8px;
+  outline: none;
+  border: 0;
   border-radius: 4px;
   background: url(../img/video/volume-bar.png) repeat-x 0 0;
-  border: 0;
-  outline: none;
 }
 
 #volume-drag::-webkit-slider-thumb{

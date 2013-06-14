@@ -138,9 +138,9 @@ html, body{
 /* Текст списка */
 
 .second-browsers .browser-item span{
+  display: none;
   margin: 0 auto;
   font: normal 16px "Arial", PT Sans, Verdana;
-  display: none;
 }
 .second-browsers .browser-item span span{
   text-align: left;
@@ -196,14 +196,14 @@ html, body{
 }
 
 .third .progress{
+  position: relative;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   width: 210px;
   height: 13px;
-  background: #e6e6e6 url(../img/progress.png) repeat-x 0 0;
   border-radius: 7px;
-  position: relative;
-  overflow: hidden;
+  background: #e6e6e6 url(../img/progress.png) repeat-x 0 0;
 }
 
 .third .progress .bar{
@@ -217,10 +217,10 @@ html, body{
 }
 
 .third .progress .percent{
-  font: normal 9px 'Verdana', Arial, Tahoma;
   position: absolute;
   top: 0;
   width: 100%;
   height: 13px;
   text-align: center;
+  font: normal 9px 'Verdana', Arial, Tahoma;
 }

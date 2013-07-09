@@ -31,7 +31,7 @@ video{
   float: left;
 }
 
-#play-pause{
+.play-pause{
   position: relative;
   top: 6px;
   left: 10px;
@@ -43,7 +43,7 @@ video{
   cursor: pointer;
 }
 
-#progress{
+.progress{
   position: relative;
   top: 9px;
   margin-left: 20px;
@@ -55,7 +55,7 @@ video{
   cursor: pointer;
 }
 
-#bar{
+.bar{
   position: relative;
   width: 0;
   height: 9px;
@@ -63,18 +63,18 @@ video{
   background: url(../img/video/loaded-bar.png) repeat-x 0 0;
 }
 
-#time-now, .minus, #time-all{
+.time-now, .minus, .time-all{
   position: relative;
   top: 8px;
   color: #fff;
   font: normal 12px "PT Sans";
 }
 
-#time-now{
+.time-now{
   margin-left: 12px;
 }
 
-#stop{
+.stop{
   position: relative;
   top: 6px;
   left: 13px;
@@ -86,7 +86,7 @@ video{
   cursor: pointer;
 }
 
-#volume-speaker{
+.volume-speaker{
   position: relative;
   top: 6px;
   margin-left: 12px;
@@ -96,7 +96,7 @@ video{
   cursor: pointer;
 }
 
-#volume-level{
+.volume-level{
   position: relative;
   top: 10px;
   margin-left: 3px;
@@ -105,7 +105,7 @@ video{
   background: url(../img/video/volume-meter.png) no-repeat 0 -11px;
 }
 
-#volume-drag{
+.volume-drag{
   -webkit-appearance: none;
   position: relative;
   top: 10px;
@@ -120,7 +120,7 @@ video{
   background: url(../img/video/volume-bar.png) repeat-x 0 0;
 }
 
-#volume-drag::-webkit-slider-thumb{
+.volume-drag::-webkit-slider-thumb{
   -webkit-appearance: none;
   position: relative;
   top: 0;
@@ -130,7 +130,7 @@ video{
   cursor: pointer;
 }
 
-#full-screen{
+.full-screen{
   position: relative;
   top: 6px;
   margin-left: 10px;
@@ -140,6 +140,6 @@ video{
   cursor: pointer;
 }
 
-#full-screen:hover{
+.full-screen:hover{
   background-position: 0 0;
 }

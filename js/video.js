@@ -102,7 +102,7 @@
 
         };
 
-        // Format view for Time
+        // Форматированный вывод времени
         this._formatTimer = function (timer, d) {
 
             if (d >= 3600) {
@@ -114,7 +114,8 @@
 
         };
 
-        this._updateTimer = function(that, d){
+        // Обновление таймера видео
+        this._updateTimer = function (that, d) {
             setInterval(function () {
                 // Define variables
                 var cTime = Math.floor(that.currentTime),
@@ -156,9 +157,14 @@
         // Обновление данных в течение проигрывания видео
         this.onPlay = function () {
 
-            var that = this, d = that.duration;
+            var that = this,
+                d = that.duration;
+
             buttons.playBtn.style.backgroundPosition = '0 0';
+
+            // Функция обновления таймера
             obj._updateTimer(that, d);
+
             return false;
 
         };

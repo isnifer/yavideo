@@ -1,4 +1,6 @@
-(function(){
+(function () {
+
+    'use strict';
 
 /*
 *   Описание переменных (в скобках элементы по умолчанию)
@@ -20,22 +22,20 @@
 
     var VideoPlayer = function (video) {
 
-        'use strict';
-
         // Сохраним this в переменную
         var obj = this,
         // Инициализация элементов видео
             v = {
-                el: (function(){
+                el: (function () {
 
-                    if (typeof video === 'object'){
+                    if (typeof video === 'object') {
                         var el = video;
                     } else {
                         el = document.querySelector(video).children[0];
                     }
                     return el;
 
-                })(),
+                }()),
                 updateTimer: ''
             },
             controlBar = v.el.nextElementSibling || document.querySelector(video.cont),
@@ -88,12 +88,12 @@
             } else if (d < 360) {
                 m = '0' + Math.floor(d / 60);
                 buttons.durElem.innerHTML = m + ':' + s;
-            } else if (d < 3600){
+            } else if (d < 3600) {
                 m = Math.floor(d / 60);
                 buttons.durElem.innerHTML = m + ':' + s;
-            } else if (d >= 3600){
+            } else if (d >= 3600) {
                 h = '0' + Math.floor(d / 3600);
-                m = Math.floor((d - h*3600) / 60);
+                m = Math.floor((d - h * 3600) / 60);
                 buttons.progrElem.style.width = '520px';
                 buttons.durElem.innerHTML = h + ':' + m + ':' + s;
                 buttons.nowElem.innerHTML = '00:00:00';
@@ -133,7 +133,7 @@
                             return minutes;
 
                         },
-                        "h" : function() {
+                        "h" : function () {
 
                             if (cTime >= 3600) {
                                 var hours = '0' + Math.floor(cTime / 3600);
@@ -182,7 +182,7 @@
             buttons.playBtn.style.backgroundPosition = '0 -17px';
             buttons.barElem.style.width = 0;
 
-            if (v.duration > 3600){
+            if (v.duration > 3600) {
                 buttons.nowElem.innerHTML = '00:00:00';
             } else {
                 buttons.nowElem.innerHTML = '00:00';
@@ -195,11 +195,11 @@
         this.toFullScreen = function () {
 
             var el = v.el;
-            if(el.requestFullScreen) {
+            if (el.requestFullScreen) {
                 el.requestFullScreen();
-            } else if(el.mozRequestFullScreen) {
+            } else if (el.mozRequestFullScreen) {
                 el.mozRequestFullScreen();
-            } else if(el.webkitRequestFullScreen) {
+            } else if (el.webkitRequestFullScreen) {
                 el.webkitRequestFullScreen();
             }
             return false;
@@ -257,17 +257,14 @@
         v.volDragElem.addEventListener('change', this.volumeChange, false);
         */
 
-    };
+    },
 
     // Get All Videos from page...
-    var videos = document.getElementsByTagName('video'),
-        videosLen = videos.length,
-        i = 0,
-        arr = [];
+        videos = document.getElementsByTagName('video'), videosLen = videos.length, i = 0, arr = [];
 
     // ...and apply Video Player
-    for (i; i<videosLen; i++) {
+    for (i; i < videosLen; i++) {
         arr[i] = new VideoPlayer(videos[i]);
     }
 
-})();
+}());

@@ -71,18 +71,17 @@
     ],
         results = document.querySelector('.results'),
         onVideoClick = function () {
+
             var p = document.getElementById('player'),
                 controls = document.getElementById('controls'),
                 $obj = videos[this.getAttribute('data-id')],
                 src = $obj.src,
                 srcLen = src.length,
-                code = '',
                 i = 0,
                 player,
-                el,
                 iframe = document.createElement('iframe'),
                 videoElem = document.createElement('video'),
-                source = document.createElement('source'),
+                source,
                 insertVideoHtml5,
                 insertVideoHosting;
 
@@ -94,17 +93,15 @@
                 videoElem.setAttribute('autoplay', true);
 
                 for (i; i<srcLen; i++) {
+                    source = document.createElement('source');
                     source.src = src[i];
                     videoElem.appendChild(source);
                 }
+
+                p.innerHTML = '';    // Remove Previous Content
                 p.appendChild(videoElem);
-                p.appendChild(controls);
 
-                controls.style.display = 'block';
-                el = document.getElementById('elem');
-
-                el.innerHTML = code;
-                player = new VideoPlayer(el);
+                player = new VideoPlayer(videoElem);
 
             };
 

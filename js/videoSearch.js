@@ -69,9 +69,7 @@ yaSearch.controller('nextPage', function ($scope) {
     $scope.pageSize = 3;
     $scope.pages = [];
     $scope.numPages = function () {
-        if ($scope.youtube) {
-            return Math.ceil($scope.youtube.length / $scope.pageSize);
-        }
+        return Math.ceil($scope.youtube.length / $scope.pageSize);
     };
 
 });

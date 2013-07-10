@@ -77,15 +77,16 @@
                 src = $obj.src,
                 srcLen = src.length,
                 code = '',
-                v = '',
                 i = 0,
                 player,
                 el,
                 iframe = document.createElement('iframe'),
                 videoElem = document.createElement('video'),
-                source = document.createElement('source');
+                source = document.createElement('source'),
+                insertVideoHtml5,
+                insertVideoHosting;
 
-            if ($obj.type !== "flash") {
+            insertVideoHtml5 = function () {
 
                 videoElem.id = 'elem';
                 videoElem.style.width = 560 + 'px';
@@ -105,7 +106,9 @@
                 el.innerHTML = code;
                 player = new VideoPlayer(el);
 
-            } else {
+            };
+
+            insertVideoHosting = function () {
 
                 iframe.src = $obj.src;
                 iframe.style.width = 560 + 'px';
@@ -118,6 +121,12 @@
                 p.innerHTML = '';
                 p.appendChild(iframe);
 
+            };
+
+            if ($obj.type !== "flash") {
+                insertVideoHtml5();
+            } else {
+                insertVideoHosting();
             }
         };
 
@@ -127,7 +136,6 @@
             var videoLength = videos.length,
                 i = 0, // iterator
                 j = 0, // iterator
-                code = '', // video list code
                 el,   // video item code
                 pic, span, // preview pic and video name
                 videoList = document.createElement('ul'),

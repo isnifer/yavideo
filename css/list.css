@@ -117,11 +117,11 @@ html, body{
   transition: top 0.3s ease;
 }
 
-#vlist .video-item:hover{
+.video-list .video-item:hover{
   box-shadow: 0 0 2px 2px rgba(59,107,85,.5);
 }
 
-#vlist .video-item:hover .video-info{
+.video-list .video-item:hover .video-info{
   top: -50px;
 }
 

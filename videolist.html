@@ -9,7 +9,6 @@
   <!--[if lt IE 9]>
   <script type="text/javascript" src="js/lib/html5shiv-printshiv.js"></script>
   <![endif]-->
-  <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script>
   <title>Список видео</title>
 </head>
 <body>
@@ -23,20 +22,18 @@
   </div>
 
   <div class="results">
-    <ul class="video-list" id="vlist"></ul>
-
     <div id="controls" style="display: none;">
       <nav class="control-bar">
-        <i id="play-pause">Play</i>
-        <i id="stop">Stop</i>
-        <div id="progress">
-          <div id="bar"></div>
+        <i class="play-pause">Play</i>
+        <i class="stop">Stop</i>
+        <div class="progress">
+          <div class="bar"></div>
         </div>
-        <span id="time-now">00:00</span><span class="minus">&nbsp;-&nbsp;</span><span id="time-all">00:00</span>
-        <!--i id="volume-speaker"></i-->
-        <!--i id="volume-level"></i-->
-        <!--input id="volume-drag" type="range" min="0" max="1" step="0.1" value="0.3"/-->
-        <i id="full-screen"></i>
+        <span class="time-now">00:00</span><span class="minus">&nbsp;-&nbsp;</span><span class="time-all">00:00</span>
+        <!--i class="volume-speaker"></i-->
+        <!--i class="volume-level"></i-->
+        <!--input class="volume-drag" type="range" min="0" max="1" step="0.1" value="0.3"/-->
+        <i class="full-screen"></i>
       </nav>
     </div>
   </div>

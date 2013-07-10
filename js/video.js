@@ -20,7 +20,7 @@
 *
 * */
 
-    var VideoPlayer = function (video) {
+    window.VideoPlayer = function (video) {
 
         // Сохраним this в переменную
         var obj = this,
@@ -257,10 +257,10 @@
         v.volDragElem.addEventListener('change', this.volumeChange, false);
         */
 
-    },
+    };
 
     // Get All Videos from page...
-        videos = document.getElementsByTagName('video'), videosLen = videos.length, i = 0, arr = [];
+    var videos = document.getElementsByTagName('video'), videosLen = videos.length, i = 0, arr = [];
 
     // ...and apply Video Player
     for (i; i < videosLen; i++) {

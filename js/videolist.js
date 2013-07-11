@@ -82,6 +82,7 @@
                 iframe = document.createElement('iframe'),
                 videoElem = document.createElement('video'),
                 source,
+                playerInit,
                 insertVideoHtml5,
                 insertVideoHosting;
 
@@ -101,9 +102,7 @@
                 p.innerHTML = '';    // Remove Previous Content
                 p.appendChild(videoElem);
 
-                playerModel = new VideoModel(videoElem, 0);
-                playerView = new VideoView(playerModel);
-                playerController = new VideoController(playerModel, playerView);
+                playerInit(videoElem);
 
             };
 
@@ -119,6 +118,14 @@
                 iframe.setAttribute('autoplay', true);
                 p.innerHTML = '';
                 p.appendChild(iframe);
+
+            };
+
+            playerInit = function (elem) {
+
+                playerModel = new VideoModel(elem, 0);
+                playerView = new VideoView(playerModel);
+                playerController = new VideoController(playerModel, playerView);
 
             };
 

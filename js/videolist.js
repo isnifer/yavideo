@@ -78,7 +78,9 @@
                 src = $obj.src,
                 srcLen = src.length,
                 i = 0,
-                player,
+                playerModel,
+                playerView,
+                playerController,
                 iframe = document.createElement('iframe'),
                 videoElem = document.createElement('video'),
                 source,
@@ -101,7 +103,9 @@
                 p.innerHTML = '';    // Remove Previous Content
                 p.appendChild(videoElem);
 
-                player = new VideoPlayer(videoElem);
+                playerModel = new VideoModel(videoElem, 0);
+                playerView = new VideoView(playerModel);
+                playerController = new VideoController(playerModel, playerView);
 
             };
 

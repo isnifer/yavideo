@@ -16,7 +16,7 @@
  *
  * */
 
-function VideoModel (video, videoId){
+function VideoModel (video, videoId) {
 
     this.counter = videoId;
 

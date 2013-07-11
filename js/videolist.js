@@ -1,7 +1,5 @@
 (function () {
 
-    'use strict';
-
     var videos = [
         {
             "type": "flash",

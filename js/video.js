@@ -257,7 +257,7 @@ VideoView.prototype = {
             that.buttons.nowElem.innerHTML = that.formatTimer(timer, duration);
 
             // Обновляем ProgressBar
-            that.buttons.barElem.style.width = Math.floor((that.buttons.progrElem.offsetWidth - 1) * that.el.currentTime / d) + 'px';
+            that.buttons.barElem.style.width = Math.floor((that.buttons.progrElem.offsetWidth - 1) * that.el.currentTime / duration) + 'px';
 
         }, 1000);
     },

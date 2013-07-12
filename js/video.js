@@ -102,6 +102,7 @@ function VideoModel (video, videoId) {
         updateTimer: ''
     };
 
+    //
     this.buttons = {};
 
 }
@@ -112,6 +113,7 @@ VideoModel.prototype = {
 
         var controlsLen = controls.length, i = 0, bar, el;
 
+        // Создаем и подключаем контролы управления видео в DOM
         for (i; i < controlsLen; i++){
 
             if (controls[i].tag === 'nav') {
@@ -145,6 +147,7 @@ VideoModel.prototype = {
         var d = Math.floor(this.v.el.duration), h, m,
             s = ((d % 60) < 10) ? '0' + d % 60 : d % 60;
 
+        // В зависимости от продолжительности выставляем необходимое кол-во 00 в текущее время
         if (d < 60) {
             m = '00';
             this.buttons.durElem.innerHTML = m + ':' + s;
@@ -184,14 +187,22 @@ VideoView.prototype = {
     // Функционал Play/Pause
     playPause : function () {
 
+        // Если видео на паузе или остановлено запускаем
         if (this.el.paused) {
             this.el.play();
+
+            // Play icon -> Pause icon
             this.buttons.playBtn.style.backgroundPosition = '0 0';
             this.buttons.playBtn.setAttribute('title', 'Pause');
         } else {
+            // Если проигрывается - останавливаем
             this.el.pause();
+
+            // Pause icon -> Play icon
             this.buttons.playBtn.style.backgroundPosition = '0 -17px';
             this.buttons.playBtn.setAttribute('title', 'Play');
+
+            // Останавливаем таймер
             clearInterval(this.timer);
         }
         return false;
@@ -201,6 +212,7 @@ VideoView.prototype = {
     // Форматированный вывод времени
     formatTimer : function (timer, d) {
 
+        // В зависимости от продолжительности выводим форматированную дату
         if (d >= 3600) {
             var formatTime = timer.h() + ':' + timer.m() + ':' + timer.s;
         } else {
@@ -211,9 +223,9 @@ VideoView.prototype = {
     },
 
     // Обновление таймера видео
-    updateTimer : function (that, d) {
+    updateTimer : function (that, duration) {
         setInterval(function () {
-            // Define variables
+            // Определяем часы секунды, минуты, часы
             var cTime = Math.floor(that.el.currentTime),
                 timer = {
                     "s" : ((cTime % 60) < 10) ? '0' + cTime % 60 : cTime % 60,
@@ -241,10 +253,10 @@ VideoView.prototype = {
                     }
                 };
 
-            // Insert data to DOM
-            that.buttons.nowElem.innerHTML = that.formatTimer(timer, d);
+            // Вставляем текущее время в DOM
+            that.buttons.nowElem.innerHTML = that.formatTimer(timer, duration);
 
-            // Update Progress Bar
+            // Обновляем ProgressBar
             that.buttons.barElem.style.width = Math.floor((that.buttons.progrElem.offsetWidth - 1) * that.el.currentTime / d) + 'px';
 
         }, 1000);
@@ -253,12 +265,13 @@ VideoView.prototype = {
     // Обновление данных в течение проигрывания видео
     onPlay : function () {
 
-        var d = this.el.duration;
-
-        this.buttons.playBtn.style.backgroundPosition = '0 0';
-
+        // Получаем продолжительность видео
+        var duration = this.el.duration;
         // Функция обновления таймера
-        this.updateTimer(this, d);
+        this.updateTimer(this, duration);
+
+        // Play icon -> Pause icon
+        this.buttons.playBtn.style.backgroundPosition = '0 0';
 
         return false;
 
@@ -273,10 +286,11 @@ VideoView.prototype = {
         // Текущее время на 0
         this.el.currentTime = 0;
 
-        // DOM
+        // Pause icon -> Play icon, ProgressBar width = 0
         this.buttons.playBtn.style.backgroundPosition = '0 -17px';
         this.buttons.barElem.style.width = 0;
 
+        // У текущего времени выставить нулевые значения
         if (this.el.duration > 3600) {
             this.buttons.nowElem.innerHTML = '00:00:00';
         } else {

@@ -88,26 +88,29 @@
 
             insertVideoHtml5 = function () {
 
+                // Создаем элемент video
                 videoElem.id = 'elem';
                 videoElem.style.width = 560 + 'px';
                 videoElem.style.height = 315 + 'px';
                 videoElem.setAttribute('autoplay', true);
 
+                // Заполняем сорцами
                 for (i; i<srcLen; i++) {
                     source = document.createElement('source');
                     source.src = src[i];
                     videoElem.appendChild(source);
                 }
 
-                p.innerHTML = '';    // Remove Previous Content
+                p.innerHTML = '';    // Очищаем родительский для видео блок
                 p.appendChild(videoElem);
 
-                playerInit(videoElem);
+                playerInit(videoElem);  // Инициализируем плеер
 
             };
 
             insertVideoHosting = function () {
 
+                // Создаем iframe с имеющимися сорцами и атрибутами
                 iframe.src = $obj.src;
                 iframe.style.width = 560 + 'px';
                 iframe.style.height = 315 + 'px';
@@ -116,7 +119,8 @@
                 iframe.setAttribute('mozallowfullscreen', true);
                 iframe.setAttribute('allowFullScreen', true);
                 iframe.setAttribute('autoplay', true);
-                p.innerHTML = '';
+
+                p.innerHTML = '';  // Очищаем родительский для видео блок
                 p.appendChild(iframe);
 
             };
@@ -142,14 +146,13 @@
             var videoLength = videos.length,
                 i = 0, // iterator
                 j = 0, // iterator
-                el,   // video item code
-                pic, span, // preview pic and video name
+                el,   // элемент превью
+                pic, span, // содержимое элемента превеью
                 videoList = document.createElement('ul'),
-                videoItems,  // DOM video list
+                videoItems,  // Список с превью видео
                 videoItemLength;
 
-            videoList.className = 'video-list';
-
+            // Заполняем отдельно взятую превью
             for (i; i < videoLength; i++) {
 
                 el = document.createElement('li');
@@ -166,11 +169,14 @@
 
             }
 
+            videoList.className = 'video-list';
+
             results.appendChild(videoList);
 
             videoItems = document.querySelectorAll('.video-item');
             videoItemLength = videoItems.length;
 
+            // Вешаем обработчики на клик по превью
             for (j; j < videoItemLength; j++) {
                 videoItems[j].addEventListener('click', onVideoClick, false);
             }

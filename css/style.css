@@ -138,7 +138,6 @@ html, body{
 /* Текст списка */
 
 .second-browsers .browser-item span{
-  display: none;
   margin: 0 auto;
   font: normal 16px "Arial", PT Sans, Verdana;
 }
@@ -184,7 +183,7 @@ html, body{
   text-align: left;
 }
 
-.test{
+.test, .second-browsers .browser-item .hide{
   display: none;
 }
 

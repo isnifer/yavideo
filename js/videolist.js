@@ -149,7 +149,7 @@
                 el,   // элемент превью
                 pic, span, // содержимое элемента превеью
                 videoList = document.createElement('ul'),
-                videoItems,  // Список с превью видео
+                videoItems,  // Превьюхи видео
                 videoItemLength;
 
             // Заполняем отдельно взятую превью

@@ -144,22 +144,22 @@ VideoModel.prototype = {
         // Устанавливаем ширину для прогрессбара в завивисимости от ширины видео
         this.buttons.progrElem.style.width = this.v.el.offsetWidth - 170 + 'px';
 
-        var d = Math.floor(this.v.el.duration), h, m,
-            s = ((d % 60) < 10) ? '0' + d % 60 : d % 60;
+        var duration = Math.floor(this.v.el.duration), h, m,
+            s = ((duration % 60) < 10) ? '0' + duration % 60 : duration % 60;
 
-        // В зависимости от продолжительности выставляем необходимое кол-во 00 в текущее время
-        if (d < 60) {
+        // В зависимости от продолжительности выставляем необходимое кол-во 00 по дефолту
+        if (duration < 60) {
             m = '00';
             this.buttons.durElem.innerHTML = m + ':' + s;
-        } else if (d < 360) {
-            m = '0' + Math.floor(d / 60);
+        } else if (duration < 360) {
+            m = '0' + Math.floor(duration / 60);
             this.buttons.durElem.innerHTML = m + ':' + s;
-        } else if (d < 3600) {
-            m = Math.floor(d / 60);
+        } else if (duration < 3600) {
+            m = Math.floor(duration / 60);
             this.buttons.durElem.innerHTML = m + ':' + s;
-        } else if (d >= 3600) {
-            h = '0' + Math.floor(d / 3600);
-            m = Math.floor((d - h * 3600) / 60);
+        } else if (duration >= 3600) {
+            h = '0' + Math.floor(duration / 3600);
+            m = Math.floor((duration - h * 3600) / 60);
             this.buttons.progrElem.style.width = '520px';
             this.buttons.durElem.innerHTML = h + ':' + m + ':' + s;
             this.buttons.nowElem.innerHTML = '00:00:00';
@@ -226,25 +226,25 @@ VideoView.prototype = {
     updateTimer : function (that, duration) {
         setInterval(function () {
             // Определяем часы секунды, минуты, часы
-            var cTime = Math.floor(that.el.currentTime),
+            var currentTime = Math.floor(that.el.currentTime),
                 timer = {
-                    "s" : ((cTime % 60) < 10) ? '0' + cTime % 60 : cTime % 60,
+                    "s" : ((currentTime % 60) < 10) ? '0' + currentTime % 60 : currentTime % 60,
                     "m" : function () {
 
-                        if (cTime < 60) {
+                        if (currentTime < 60) {
                             var minutes = '00';
-                        } else if (cTime / 60 < 10) {
-                            minutes = '0' + Math.floor(cTime / 60);
+                        } else if (currentTime / 60 < 10) {
+                            minutes = '0' + Math.floor(currentTime / 60);
                         } else {
-                            minutes = Math.floor(cTime / 60);
+                            minutes = Math.floor(currentTime / 60);
                         }
                         return minutes;
 
                     },
                     "h" : function () {
 
-                        if (cTime >= 3600) {
-                            var hours = '0' + Math.floor(cTime / 3600);
+                        if (currentTime >= 3600) {
+                            var hours = '0' + Math.floor(currentTime / 3600);
                         } else {
                             hours = '00';
                         }
@@ -317,9 +317,9 @@ VideoView.prototype = {
 
     onProgressClick : function (e) {
 
-        var eventX = e.offsetX || e.layerX;  // Firefox fix
-        this.buttons.barElem.style.width = eventX + 'px';
-        this.el.currentTime = Math.floor((eventX * Math.floor(this.el.duration)) / (this.buttons.progrElem.offsetWidth - 1));
+        var progressClick = e.offsetX || e.layerX;  // Firefox fix
+        this.buttons.barElem.style.width = progressClick + 'px';
+        this.el.currentTime = Math.floor((progressClick * Math.floor(this.el.duration)) / (this.buttons.progrElem.offsetWidth - 1));
         return false;
 
     }
